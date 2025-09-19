@@ -16,9 +16,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <Header />
-      <body>{children}</body>
-      <Footer />
+      <body className={type_second.variable}>
+        <div className="App">
+          <Header />
+          <main className="AppBody">{children}</main>
+          <Footer />
+        </div>
+      </body>
     </html>
   );
 }
