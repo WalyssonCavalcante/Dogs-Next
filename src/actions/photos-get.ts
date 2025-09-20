@@ -8,7 +8,7 @@ export type Photo = {
   src: string;
   weight: string;
   age: string;
-  acesso: string;
+  acessos: string;
   total_comments: string;
 };
 
