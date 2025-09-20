@@ -4,7 +4,7 @@
   cursor: pointer;
   border: none;
   border-radius: 0.4rem;
-  background: #b2b0e8;
+  background: #faa533;
   color: #17313e;
   min-width: 8rem;
   padding: 0.8rem 1.2rem;
@@ -15,7 +15,7 @@
 .button:hover,
 .button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px #ebd6fb, 0 0 0 4px #b2b0e8;
+  box-shadow: 0 0 0 3px #fea, 0 0 0 4px #faa533;
 }
 
 .button:disabled {

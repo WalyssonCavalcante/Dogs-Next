@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Perdeu a senha | Dogs",
+  description: "Recupere sua senha no site Dogs.",
+};
+
 export default async function ForgetPage() {
   return (
     <main>

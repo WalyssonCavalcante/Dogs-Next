@@ -1,13 +1,13 @@
 "use client";
 
-import login from "@/actions/login";
 import { useFormState, useFormStatus } from "react-dom";
 import Button from "@/components/forms/button";
 import Input from "@/components/forms/input";
 import ErrorMessage from "../helper/error-message";
 import React from "react";
-import Link from "next/link";
 import styles from "./login-form.module.css";
+import userPost from "@/actions/user-post";
+import Link from "next/link";
 
 function FormButton() {
   const { pending } = useFormStatus();
@@ -15,16 +15,16 @@ function FormButton() {
   return (
     <>
       {pending ? (
-        <Button disabled={pending}>Enviando...</Button>
+        <Button disabled={pending}>Cadastrando...</Button>
       ) : (
-        <Button>Entrar</Button>
+        <Button>Cadastrar</Button>
       )}
     </>
   );
 }
 
-export default function LoginForm() {
-  const [state, action] = useFormState(login, {
+export default function LoginCreate() {
+  const [state, action] = useFormState(userPost, {
     ok: false,
     error: "",
     data: null,
@@ -35,23 +35,21 @@ export default function LoginForm() {
   }, [state.ok]);
 
   return (
-    <div className="animeLeft">
+    <>
       <form action={action} className={styles.form}>
         <Input label="Usuário" name="username" type="text" />
+        <Input label="Email" name="email" type="email" />
         <Input label="Senha" name="password" type="password" />
         <ErrorMessage error={state.error} />
         <FormButton />
       </form>
-      <Link className={styles.forget} href="/login/forget">
-        Perdeu a senha?
-      </Link>
       <div className={styles.create}>
-        <h2 className={styles.subtitle}>Cadastre-se</h2>
-        <p>Ainda não possui conta? Cadastre-se no site.</p>
-        <Link className="button" href="/login/create">
-          Cadastro
+        <h2 className={styles.subtitle}>Conecte-se</h2>
+        <p>Ja possui conta? Conecte-se no site.</p>
+        <Link className="button" href="/login">
+          Conectar
         </Link>
       </div>
-    </div>
+    </>
   );
 }
